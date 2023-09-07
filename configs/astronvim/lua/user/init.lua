@@ -8,7 +8,7 @@ return {
       ["<leader>s"] = { "<cmd>wa<CR>" },
       ["<C-d>"] = { "yyp" },
       ["<C-n>"] = { "<cmd>Neotree toggle<CR>" },
-      ["<leader>p"] = { '"+p<CR>' },
+      ["<leader>p"] = { "\"+p<CR>" },
       ["<C-f>"] = { "<cmd>EslintFixAll<CR>" },
       ["q:"] = { "" },
       ["<C-q>"] = { "" },
@@ -25,6 +25,8 @@ return {
     },
     v = {
       ["<leader>y"] = { '"+y<CR>' },
+      ["<C-d>"] = { "ykpgv" },
+      ["p"] = { "pgvyw" },
     },
     x = {
       ["*"] = { "/\\<<C-R>=expand('<cword>')<CR>\\><CR>" },
