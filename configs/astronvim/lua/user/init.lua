@@ -1,6 +1,3 @@
-vim.g.copilot_no_tab_map = true
-vim.api.nvim_set_keymap("i", "<C-l>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
-
 return {
   mappings = {
     n = {
@@ -8,8 +5,7 @@ return {
       ["<leader>s"] = { "<cmd>wa<CR>" },
       ["<C-d>"] = { "yyp" },
       ["<C-n>"] = { "<cmd>Neotree toggle<CR>" },
-      ["<leader>p"] = { "\"+p<CR>" },
-      ["<C-f>"] = { "<cmd>EslintFixAll<CR>" },
+      ["<leader>p"] = { '"+p<CR>' },
       ["q:"] = { "" },
       ["<C-q>"] = { "" },
       ["<C-t>"] = { "<cmd>tabnew<CR>" },
@@ -63,13 +59,69 @@ return {
   },
   plugins = {
     {
-      "github/copilot.vim",
-      event = "BufEnter",
-      autoStart = true,
-    },
-    {
       "f-person/git-blame.nvim",
       event = "BufEnter",
+    },
+    {
+      "rebelot/heirline.nvim",
+      opts = function(_, opts)
+        local status = require "astronvim.utils.status"
+
+        opts.winbar = { -- create custom winbar
+          -- store the current buffer number
+          init = function(self) self.bufnr = vim.api.nvim_get_current_buf() end,
+          fallthrough = false, -- pick the correct winbar based on condition
+          -- inactive winbar
+          {
+            condition = function() return not status.condition.is_active() end,
+            -- show the path to the file relative to the working directory
+            status.component.separated_path { path_func = status.provider.filename { modify = ":.:h" } },
+            -- add the file name and icon
+            status.component.file_info {
+              file_icon = { hl = status.hl.file_icon "winbar", padding = { left = 0 } },
+              file_modified = false,
+              file_read_only = false,
+              hl = status.hl.get_attributes("winbarnc", true),
+              surround = false,
+              update = "BufEnter",
+            },
+          },
+          -- active winbar
+          {
+            -- show the path to the file relative to the working directory
+            status.component.separated_path { path_func = status.provider.filename { modify = ":.:h" } },
+            -- add the file name and icon
+            status.component.file_info { -- add file_info to breadcrumbs
+              file_icon = { hl = status.hl.filetype_color, padding = { left = 0 } },
+              file_modified = false,
+              file_read_only = false,
+              hl = status.hl.get_attributes("winbar", true),
+              surround = false,
+              update = "BufEnter",
+            },
+            -- show the breadcrumbs
+            status.component.breadcrumbs {
+              icon = { hl = true },
+              hl = status.hl.get_attributes("winbar", true),
+              prefix = true,
+              padding = { left = 0 },
+            },
+          },
+        }
+
+        return opts
+      end,
+    },
+    {
+      "Exafunction/codeium.vim",
+      event = "BufEnter",
+      config = function()
+        -- Change '<C-g>' here to any keycode you like.
+        vim.keymap.set("i", "<C-l>", function() return vim.fn["codeium#Accept"]() end, { expr = true })
+        vim.keymap.set("i", "<c-;>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true })
+        vim.keymap.set("i", "<c-,>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true })
+        vim.keymap.set("i", "<c-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true })
+      end,
     },
   },
 }
