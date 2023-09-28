@@ -1,0 +1,5 @@
+require('general')
+require('keymappings')
+require('lazybootstrap')
+require('autocmds')
+require('on_attatch')
