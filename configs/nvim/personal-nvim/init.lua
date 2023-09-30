@@ -1,5 +1,3 @@
-require('general')
-require('keymappings')
-require('lazybootstrap')
-require('autocmds')
-require('on_attatch')
+require("general")
+require("packerinit")
+require("keymappings")

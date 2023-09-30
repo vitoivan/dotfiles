@@ -1,12 +1,12 @@
 return {
   "nvim-telescope/telescope.nvim",
-  dependencies = {
+  requires = {
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
   },
-  cmd = "Telescope",
-  opts = function()
+  cmd = {"Telescope"},
+  config = function()
     local actions = require "telescope.actions"
-    return {
+    require("telescope").setup {
       defaults = {
         file_ignore_patterns = {
           "node%_modules/.*",

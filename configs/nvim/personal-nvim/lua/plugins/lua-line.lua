@@ -1,7 +1,7 @@
 return {
-    {
         'nvim-lualine/lualine.nvim',
-        opts = function()
+        config = function()
+            local lualine = require 'lualine'
             -- Eviline config for lualine
             -- Author: shadmansaleh
             -- Credit: glepnir
@@ -37,7 +37,7 @@ return {
             }
 
             -- Config
-            local config = {
+            local cfg = {
                 options = {
                     -- Disable sections and component separators
                     component_separators = '',
@@ -74,12 +74,12 @@ return {
 
             -- Inserts a component in lualine_c at left section
             local function ins_left(component)
-                table.insert(config.sections.lualine_c, component)
+                table.insert(cfg.sections.lualine_c, component)
             end
 
             -- Inserts a component in lualine_x at right section
             local function ins_right(component)
-                table.insert(config.sections.lualine_x, component)
+                table.insert(cfg.sections.lualine_x, component)
             end
 
             ins_left {
@@ -220,8 +220,6 @@ return {
                 color = { fg = colors.blue },
                 padding = { left = 1 },
             }
-            return config
+            lualine.setup(cfg)
         end
-
-    }
 }

@@ -2,6 +2,12 @@
 vim.g.mapleader = " "
 
 -- normal mode
+    -- Packer
+    vim.api.nvim_set_keymap("n", "<leader>ps", "<cmd>PackerSync<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>LspZeroFormat<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "<C-z>", "", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "q", "", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>RR", "<cmd>so $NVIM_PATH/init.lua<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>Q", ":qa!<CR>", { noremap = true, silent = true })
@@ -22,8 +28,11 @@ vim.api.nvim_set_keymap("n", "<leader>5", "5gt", { noremap = true, silent = true
 vim.api.nvim_set_keymap("n", "<C-f>", "za", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>LazyGit<CR>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>tt", "<cmd>TransparentToggle<CR>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("n", "<C-n>", "<cmd>Neotree toggle<CR>", { noremap = false, silent = true })
 
 -- visual mode
+vim.api.nvim_set_keymap("v", "<C-z>", "", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<leader>y", '"+y<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<C-d>", "ykpgv", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "p", "pgvyw", { noremap = true, silent = true })

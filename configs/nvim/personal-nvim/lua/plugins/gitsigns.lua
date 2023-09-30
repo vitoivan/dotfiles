@@ -1,9 +1,9 @@
 return {
-	{
 		-- Adds git related signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
-		opts = {
-			-- See `:help gitsigns.txt`
+		config = function()
+
+        require('gitsigns').setup({
 			signs = {
 				add = { text = "│" },
 				change = { text = "│" },
@@ -40,14 +40,8 @@ return {
 					end)
 					return "<Ignore>"
 				end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
-			end,
-		},
-	},
-	{
-		"kdheepak/lazygit.nvim",
-		-- optional for floating window border decoration
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-	},
+			end
+        })
+        end
+			-- See `:help gitsigns.txt`
 }
