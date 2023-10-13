@@ -1,0 +1,74 @@
+(defvar current_workspace "1")
+
+(defvar change_ws "scripts/workspace/set-ws")
+
+(defwidget workspaces []
+    (box :class "workspaces"
+         :orientation "h"
+         :space-evenly true
+         :halign "start"
+         :valign "center"
+         :spacing 8
+        (button
+            :class { current_workspace == "1" ? "btn-active" : "" }
+            :onclick { change_ws + " 1" }
+            :tooltip "Workspace 1"
+            "1"
+        )
+        (button
+            :class { current_workspace == "2" ? "btn-active" : "" }
+            :onclick { change_ws + " 2" }
+            :tooltip "Workspace 2"
+            "2"
+        )
+        (button
+            :class { current_workspace == "3" ? "btn-active" : "" }
+            :onclick { change_ws + " 3" }
+            :tooltip "Workspace 3"
+            "3"
+        )
+        (button
+            :class { current_workspace == "4" ? "btn-active" : "" }
+            :onclick { change_ws + " 4" }
+            :tooltip "Workspace 4"
+            "4"
+        )
+        (button
+            :class { current_workspace == "5" ? "btn-active" : "" }
+            :onclick { change_ws + " 5" }
+            :tooltip "Workspace 5"
+            "5"
+        )
+        (button
+            :class { current_workspace == "6" ? "btn-active" : "" }
+            :onclick { change_ws + " 6" }
+            :tooltip "Workspace 6"
+            "6"
+        )
+        (button
+            :class { current_workspace == "7" ? "btn-active" : "" }
+            :onclick { change_ws + " 7" }
+            :tooltip "Workspace 7"
+            "7"
+        )
+        (button
+            :class { current_workspace == "8" ? "btn-active" : "" }
+            :onclick { change_ws + " 8" }
+            :tooltip "Workspace 8"
+            "8"
+        )
+        (button
+            :class { current_workspace == "9" ? "btn-active" : "" }
+            :onclick { change_ws + " 9" }
+            :tooltip "Workspace 9"
+            "9"
+        )
+        (button
+            :class { current_workspace == "10" ? "btn-active" : "" }
+            :onclick { change_ws + " 10" }
+            :tooltip "Workspace 10"
+            "10"
+        )
+    )
+)
+

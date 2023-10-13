@@ -1,0 +1,43 @@
+(include "./widgets/workspace.yuck")
+(include "./widgets/date.yuck")
+
+(defwidget bar-widget []
+    ;; https://elkowar.github.io/eww/widgets.html#centerbox
+    (box
+          :orientation "h"
+          :class "bar-widget"
+          (box
+              :orientation "h"
+              :space-evenly false
+              :halign "start"
+              :spacing 16
+              (workspaces)
+          )
+          ""
+          (box
+              :orientation "h"
+              :space-evenly false
+              :halign "end"
+              :spacing 16
+              (date_wrapper)
+         )
+    )
+)
+
+
+;; https://elkowar.github.io/eww/configuration.html
+(defwindow bar
+           :monitor 0
+           :stacking "fg"
+           :wm-ignore false
+           :windowtype "dock"
+           :reserve (struts :distance "55px" :side "top")
+           :geometry (geometry :x "0%"
+                               :y "150px"
+                               :width "98%"
+                               :height "75px"
+                               :anchor "top center"
+                      )
+           (bar-widget)
+)
+

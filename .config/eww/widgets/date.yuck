@@ -1,0 +1,13 @@
+(defpoll now
+         :interval "10s"
+         "date '+%H :  %M      %b  %d,  %Y'"
+)
+
+(defwidget date_wrapper []
+    (box
+        :class "date-box"
+        :orientation "h"
+        :valign "center"
+        now
+   )
+)

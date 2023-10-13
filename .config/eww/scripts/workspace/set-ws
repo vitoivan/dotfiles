@@ -1,0 +1,11 @@
+
+
+
+## sets the variable $1 to the current workspace $2 
+switch_to_workspace() {
+    i3-msg workspace $1
+    # eww update current_workspace=$1
+}
+
+
+switch_to_workspace $1
