@@ -3,15 +3,22 @@
 #
 
 # terminal emulator
+# super + Return
+#  	gnome-terminal
+#
 super + Return
-	gnome-terminal
+ 	alacritty
+    
 
 # program launcher
-super + d
-	dmenu_run
+# super + d
+# 	dmenu_run
+#
+super + {d,r,p,s}
+	sh $HOME/.config/rofi/bin/{launcher,runner,powermenu,screenshot}
 
 # file manager
-super + e
+super + f
     thunar
 
 # browser 
@@ -26,12 +33,16 @@ super + Escape
 # bspwm hotkeys
 #
 
-# quit/restart bspwm
-super + alt + {q,r}
-	bspc {quit,wm -r}
+# quit bspwm
+super + shift + e
+	bspc quit
+
+# reload bspwm
+super + alt + r
+	bspc wm -r
 
 # close and kill
-super + c
+super + q
 	bspc node -c
 
 # alternate between the tiled and monocle layout

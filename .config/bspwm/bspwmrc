@@ -5,12 +5,14 @@ MONITOR_2="DP-2"
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
+xsetroot -cursor_name left_ptr &
+
+## $1 == width and $2 == height
 
 ~/.config/polybar/launch.sh &
 nitrogen --restore &
 # picom --experimental-backends &
 picom &
-
 
 bspc monitor "$MONITOR_1" -d 1 2 3 4 5
 bspc monitor "$MONITOR_2" -d 6 7 8 9 10
@@ -21,9 +23,15 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
+########## floating windows
+
+## sound control
+bspc rule -a Pavucontrol state=floating sticky 
+## file manager
+bspc rule -a Thunar state=floating rectangle=1280x720+250+250 focus=on ## disk analyzr
+bspc rule -a Baobab state=floating sticky
+
+
 bspc rule -a Gimp desktop='^8' state=tiled follow=on
 # bspc rule -a Brave-browser desktop='^2' state=tiled follow=on
 bspc rule -a Chromium desktop='2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
