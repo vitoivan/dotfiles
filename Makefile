@@ -2,7 +2,7 @@
 
 cfg_dir=~/.config
 
-eww_dir=$(cfg_dir)/eww
+rofi_dir=$(cfg_dir)/rofi
 polybar_dir=$(cfg_dir)/polybar
 alacritty_dir=$(cfg_dir)/alacritty
 bspwm_dir=$(cfg_dir)/bspwm
@@ -10,12 +10,12 @@ picom_dir=$(cfg_dir)/picom
 sxhkd_dir=$(cfg_dir)/sxhkd
 
 ## update the dotfiles of this directory for future push to GH
-update-remote-all:  update-remote-polybar update-remote-alacritty update-remote-bspwm update-remote-sxhkd
+update-remote-all:  update-remote-rofi update-remote-polybar update-remote-alacritty update-remote-bspwm update-remote-sxhkd  update-remote-picom
 
-update-remote-eww:
-	@echo "updating eww"
-	rm -rf .config/eww
-	cp -r $(eww_dir) .config
+update-remote-rofi:
+	@echo "updating rofi"
+	rm -rf .config/rofi
+	cp -r $(rofi_dir) .config
 
 update-remote-polybar:
 	@echo "updating polybar"
@@ -34,12 +34,10 @@ update-remote-bspwm:
 	cp -r $(bspwm_dir) .config
 
 
-
 update-remote-sxhkd:
 	@echo "updating sxhkd"
 	rm -rf .config/sxhkd
 	cp -r $(sxhkd_dir) .config
-
 
 update-remote-picom:
 	@echo "updating picom"
@@ -48,5 +46,5 @@ update-remote-picom:
 
 
 
-.PHONY: update-remote-all update-remote-eww update-remote-polybar update-remote-alacritty update-remote-bspwm update-remote-sxhkd
+.PHONY: update-remote-all update-remote-rofi update-remote-polybar update-remote-alacritty update-remote-bspwm update-remote-sxhkd
 

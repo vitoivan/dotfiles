@@ -1,12 +1,13 @@
 #! /bin/sh
 
-MONITOR_1="HDMI-0"
-MONITOR_2="DP-2"
+MONITOR_1="HDMI-1"
+## MONITOR_2="DP-2"
 
 
 xsetroot -cursor_name left_ptr &
 
 ## $1 == width and $2 == height
+
 ~/.config/picom/launch.sh &
 
 ~/.config/sxhkd/launch.sh &
