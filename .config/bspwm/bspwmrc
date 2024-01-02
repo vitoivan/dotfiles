@@ -3,30 +3,32 @@
 MONITOR_1="HDMI-0"
 MONITOR_2="DP-2"
 
-pgrep -x sxhkd > /dev/null || sxhkd &
 
 xsetroot -cursor_name left_ptr &
 
 ## $1 == width and $2 == height
+~/.config/picom/launch.sh &
+
+~/.config/sxhkd/launch.sh &
 
 ~/.config/polybar/launch.sh &
-nitrogen --restore &
-# picom --experimental-backends &
-picom &
 
-bspc monitor "$MONITOR_1" -d 1 2 3 4 5
-bspc monitor "$MONITOR_2" -d 6 7 8 9 10
-bspc config border_width         1
+
+nitrogen --restore &
+
+bspc monitor "$MONITOR_1" -d 1 2 3 4 5 6 7 8 9 10
+# bspc monitor "$MONITOR_2" -d 6 7 8 9 10
+bspc config border_width         0
 bspc config window_gap           16
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
-bspc config gapless_monocle      true
+bspc config gapless_monocle      false
 
 ########## floating windows
 
 ## sound control
-bspc rule -a Pavucontrol state=floating sticky 
+bspc rule -a Pavucontrol state=floating sticky rectangle=1280x720+250+250 focus=on
 bspc rule -a Lxappearance state=floating sticky 
 
 ## file manager
@@ -37,6 +39,6 @@ bspc rule -a Org.gnome.Nautilus state=floating sticky
 bspc rule -a Baobab state=floating sticky
 
 
-bspc rule -a Gimp desktop='^8' state=tiled follow=on
+# bspc rule -a Gimp desktop='^8' state=tiled follow=on
 # bspc rule -a Brave-browser desktop='^2' state=tiled follow=on
-bspc rule -a Chromium desktop='2'
+# bspc rule -a Chromium desktop='2'

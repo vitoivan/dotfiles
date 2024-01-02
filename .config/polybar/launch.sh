@@ -8,8 +8,8 @@
 killall -q polybar
 
 MONITOR1="HDMI-0"
-MONITOR2="DP-2"
+polybar bar1 &
 
-polybar example &
-polybar example2 &
+# MONITOR2="DP-2"
+# polybar example2 &
 

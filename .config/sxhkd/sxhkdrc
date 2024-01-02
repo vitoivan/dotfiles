@@ -2,20 +2,12 @@
 # wm independent hotkeys
 #
 
-# terminal emulator
-# super + Return
-#  	gnome-terminal
-#
 super + Return
  	alacritty
     
 
-# program launcher
-# super + d
-# 	dmenu_run
-#
 super + {d,r,p,s}
-	sh $HOME/.config/rofi/bin/{launcher,runner,powermenu,screenshot}
+	sh $HOME/.config/rofi/launchers/run.sh
 
 # file manager
 super + f
@@ -23,7 +15,7 @@ super + f
 
 # browser 
 super + b
-    brave-browser
+    firefox
 
 # make sxhkd reload its configuration files:
 super + Escape

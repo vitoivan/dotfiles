@@ -10,7 +10,7 @@ picom_dir=$(cfg_dir)/picom
 sxhkd_dir=$(cfg_dir)/sxhkd
 
 ## update the dotfiles of this directory for future push to GH
-update-remote-all: update-remote-eww update-remote-polybar update-remote-alacritty update-remote-bspwm update-remote-sxhkd
+update-remote-all:  update-remote-polybar update-remote-alacritty update-remote-bspwm update-remote-sxhkd
 
 update-remote-eww:
 	@echo "updating eww"
