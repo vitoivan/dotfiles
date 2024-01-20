@@ -15,7 +15,7 @@ super + f
 
 # browser 
 super + b
-    firefox
+    google-chrome
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -130,3 +130,9 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+
+##  Printscreen
+#
+{shift,_} + Print
+    scrot {--select,_} '%F_%H-%M-%S_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'

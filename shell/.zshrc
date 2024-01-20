@@ -48,5 +48,8 @@ alias deac='deactivate'
 
 ################## General ##################
 alias open="xdg-open"
+alias zshcfg="vim ~/.zshrc"
+alias zshsource="source ~/.zshrc"
+alias tmuxcfg="vim ~/.tmux.conf"
 #############################################
 

@@ -35,7 +35,7 @@ multiplier = 3
 save_to_clipboard = false
 
 [shell]
-program = "/usr/bin/bash"
+program = "/usr/bin/zsh"
 
 [window]
 opacity = 1
