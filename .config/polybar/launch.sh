@@ -7,9 +7,7 @@
 # Otherwise you can use the nuclear option:
 killall -q polybar
 
-MONITOR1="HDMI-0"
-polybar bar1 &
+# polybar bar1 &
 
 # MONITOR2="DP-2"
-# polybar example2 &
-
+polybar main &
