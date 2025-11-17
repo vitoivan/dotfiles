@@ -2,4 +2,7 @@
 
 killall -q sxhkd
 sleep 1
-sxhkd &
+
+CONFIG_FILE=~/dotfiles/sxhkd/sxhkdrc
+
+sxhkd -c $CONFIG_FILE &

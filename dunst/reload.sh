@@ -1,6 +1,6 @@
 pkill dunst
 ll dunst
-dunst -config ~/.config/dunst/dunstrc &
+dunst -config ~/dotfiles/dunst/dunstrc &
 
 notify-send -u critical "Test message: critical test 1"
 notify-send -u normal "Test message: normal test 2"

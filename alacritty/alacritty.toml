@@ -1,10 +1,10 @@
-import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+import = ["~/.config/alacritty/gruvbox-dark.toml"]
 
 [colors]
 draw_bold_text_with_bright_colors = true
 
 [font]
-size = 16
+size = 12
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
@@ -38,12 +38,9 @@ save_to_clipboard = false
 program = "/usr/bin/zsh"
 
 [window]
-opacity = 1
+padding = { x = 6, y = 6 }
+dynamic_padding = true
+class = { general = "Alacritty", instance = "Alacritty" }
 
-[window.class]
-general = "Alacritty"
-instance = "Alacritty"
-
-[window.padding]
-x = 10
-y = 10
+[env]
+TERM = "xterm-256color"

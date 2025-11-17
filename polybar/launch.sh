@@ -10,4 +10,7 @@ killall -q polybar
 # polybar bar1 &
 
 # MONITOR2="DP-2"
-polybar main &
+#
+CONFIG="$HOME/dotfiles/polybar/config.ini"
+
+polybar main --config=$CONFIG &

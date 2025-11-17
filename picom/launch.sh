@@ -2,5 +2,4 @@
 
 killall -q picom
 sleep 1
-picom &
-
+picom --config="$HOME/dotfiles/picom/picom.conf" &

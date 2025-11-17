@@ -3,11 +3,10 @@
 #
 
 super + Return
- 	alacritty
+ 	alacritty --config-file ~/dotfiles/alacritty/alacritty.toml
     
-
 super + d
-	rofi -show drun
+	rofi -show drun -config ~/dotfiles/rofi/config.rasi
 
 # file manager
 super + f
